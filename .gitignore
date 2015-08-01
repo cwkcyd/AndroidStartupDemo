@@ -25,3 +25,6 @@ proguard/
 
 # Log Files
 *.log
+# Andrid Studio
+*.iml
+.idea

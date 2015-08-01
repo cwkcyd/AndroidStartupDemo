@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">SwipeRefreshLayoutForLollipop</string>
+
+    <string name="app_loading">处理中…</string>
+    <string name="app_loading_more">加载中…</string>
+
+    <string name="app_home">首页</string>
+    <string name="app_plan">计划List</string>
+    <string name="app_history">历史</string>
+    <string name="app_device">设备</string>
+    <string name="app_run_complete">完成</string>
+    <string name="app_user_info">个人</string>
+
+
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
