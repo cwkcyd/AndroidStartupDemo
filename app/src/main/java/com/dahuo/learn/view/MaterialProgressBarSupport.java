@@ -7,7 +7,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dahuo.learn.swiperefreshlayoutforlollipop.R;
+import com.dahuo.learn.androidstartupdemo.R;
+
 
 /**
  * Created on 15/08/01

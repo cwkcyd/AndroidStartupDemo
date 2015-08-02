@@ -1,4 +1,4 @@
-package com.dahuo.learn.swiperefreshlayoutforlollipop.constant;
+package com.dahuo.learn.androidstartupdemo.constant;
 
 /**
  * @author Yan Lu

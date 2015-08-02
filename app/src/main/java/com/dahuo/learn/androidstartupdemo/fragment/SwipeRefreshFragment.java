@@ -1,4 +1,4 @@
-package com.dahuo.learn.swiperefreshlayoutforlollipop.fragment;
+package com.dahuo.learn.androidstartupdemo.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.dahuo.learn.swiperefreshlayoutforlollipop.R;
-import com.dahuo.learn.swiperefreshlayoutforlollipop.constant.AppConstants;
+import com.dahuo.learn.androidstartupdemo.R;
+import com.dahuo.learn.androidstartupdemo.constant.AppConstants;
 
 
 /**
@@ -73,6 +73,7 @@ public class SwipeRefreshFragment extends BaseFragment implements View.OnClickLi
                     @Override
                     public void run() {
                         mSwipeRefreshLayout.setRefreshing(false);
+                        //mSwipeRefreshLayout.setEnabled(false);//可以禁止下拉刷新
                     }
                 }, 3000);//3秒
             }

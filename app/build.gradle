@@ -5,17 +5,29 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "com.dahuo.learn.swiperefreshlayoutforlollipop"
+        applicationId "com.dahuo.learn.androidstartupdemo"
         minSdkVersion 14
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 100
+        versionName "1.0.0"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    productFlavors {
+        fir{}
+        wandoujia{}
+        qihu360{}
+        baidu{}
+        xiaomi{}
+        uc{}
+//        productFlavors.all{
+//            flavor->flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+//        }
     }
 }
 

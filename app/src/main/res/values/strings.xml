@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SwipeRefreshLayoutForLollipop</string>
+    <string name="app_name">AndroidStartupDemo</string>
 
     <string name="app_loading">处理中…</string>
     <string name="app_loading_more">加载中…</string>

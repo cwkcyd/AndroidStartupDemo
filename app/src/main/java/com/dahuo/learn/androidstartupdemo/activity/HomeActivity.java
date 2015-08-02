@@ -1,11 +1,11 @@
-package com.dahuo.learn.swiperefreshlayoutforlollipop.activity;
+package com.dahuo.learn.androidstartupdemo.activity;
 
 import android.os.Bundle;
 
-import com.dahuo.learn.swiperefreshlayoutforlollipop.R;
-import com.dahuo.learn.swiperefreshlayoutforlollipop.fragment.SimpleFragment;
-import com.dahuo.learn.swiperefreshlayoutforlollipop.fragment.SwipeRefreshFragment;
-import com.dahuo.learn.swiperefreshlayoutforlollipop.fragment.SwipeRefreshFragmentList;
+import com.dahuo.learn.androidstartupdemo.R;
+import com.dahuo.learn.androidstartupdemo.fragment.SimpleFragment;
+import com.dahuo.learn.androidstartupdemo.fragment.SwipeRefreshFragment;
+import com.dahuo.learn.androidstartupdemo.fragment.SwipeRefreshFragmentList;
 
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 import it.neokree.materialnavigationdrawer.elements.MaterialSection;

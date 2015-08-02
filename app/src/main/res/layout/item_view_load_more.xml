@@ -16,6 +16,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             app:progressColor="@color/line_color_run_speed_13"
+            app:progressBackgroundColor="@color/progress_background_light"
             app:progressSmallSize="true" />
 
         <TextView
