@@ -30,7 +30,7 @@ public class SwipeRefreshFragmentList extends BaseFragment implements View.OnCli
     private String mTitle;
     private LinearLayoutManager mLinearLayoutManager;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private RecyclerView mRecyclerView;
+    private static RecyclerView mRecyclerView;
     private List<String> mDataList = new ArrayList<>();
     private SimpleStringRecyclerViewAdapter mAdapter;
 
@@ -212,6 +212,14 @@ public class SwipeRefreshFragmentList extends BaseFragment implements View.OnCli
             } else {
                 View view = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.list_item, parent, false);
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int itemPosition = SwipeRefreshFragmentList.mRecyclerView.getChildAdapterPosition(v);
+                        mValues.remove(itemPosition);
+                        notifyItemRemoved(itemPosition);
+                    }
+                });
                 return new ItemViewHolder(view);
             }
         }
