@@ -2,11 +2,10 @@
     <string name="app_name">AndroidStartupDemo</string>
 
     <string name="app_loading">处理中…</string>
-    <string name="app_loading_more">加载中…</string>
 
     <string name="app_home">首页</string>
     <string name="app_plan">计划List</string>
-    <string name="app_history">历史</string>
+    <string name="app_history">历史List</string>
     <string name="app_device">设备</string>
     <string name="app_run_complete">完成</string>
     <string name="app_user_info">个人</string>

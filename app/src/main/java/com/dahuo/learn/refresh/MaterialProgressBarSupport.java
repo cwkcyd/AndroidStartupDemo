@@ -1,4 +1,4 @@
-package com.dahuo.learn.view;
+package com.dahuo.learn.refresh;
 
 import android.content.Context;
 import android.content.res.TypedArray;

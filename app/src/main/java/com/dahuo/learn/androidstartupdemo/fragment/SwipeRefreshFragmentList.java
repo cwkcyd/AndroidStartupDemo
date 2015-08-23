@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.dahuo.learn.androidstartupdemo.R;
 import com.dahuo.learn.androidstartupdemo.constant.AppConstants;
-import com.dahuo.learn.view.MaterialProgressBarSupport;
+import com.dahuo.learn.refresh.MaterialProgressBarSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +91,7 @@ public class SwipeRefreshFragmentList extends BaseFragment implements View.OnCli
 
         mRecyclerView.setLayoutManager(mLinearLayoutManager = new LinearLayoutManager(getActivity()));
         mAdapter = new SimpleStringRecyclerViewAdapter(getActivity(), mDataList);
-        mAdapter.setHassMoreData(true);
+        mAdapter.setHasMoreData(true);
         mRecyclerView.setAdapter(mAdapter);
 
 
@@ -276,7 +276,7 @@ public class SwipeRefreshFragmentList extends BaseFragment implements View.OnCli
             return hasMoreData;
         }
 
-        public void setHassMoreData(boolean isMoreData) {
+        public void setHasMoreData(boolean isMoreData) {
             if(this.hasMoreData != isMoreData) {
                 this.hasMoreData = isMoreData;
                 notifyDataSetChanged();

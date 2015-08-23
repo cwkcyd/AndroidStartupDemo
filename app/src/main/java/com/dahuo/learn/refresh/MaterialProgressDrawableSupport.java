@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dahuo.learn.view;
+package com.dahuo.learn.refresh;
 
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
