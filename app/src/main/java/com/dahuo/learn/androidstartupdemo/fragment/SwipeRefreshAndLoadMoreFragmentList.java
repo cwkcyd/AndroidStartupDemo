@@ -103,15 +103,16 @@ public class SwipeRefreshAndLoadMoreFragmentList extends BaseFragment implements
                     @Override
                     public void run() {
                         int position = mAdapter.getItemCount();
-                        mAdapter.append(mTitle + " +" + mAdapter.getItemCount());
-                        mAdapter.append(mTitle + " +" + mAdapter.getItemCount());
-                        mAdapter.append(mTitle + " +" + mAdapter.getItemCount());
-                        mAdapter.append(mTitle + " +" + mAdapter.getItemCount());
-                        mAdapter.append(mTitle + " +" + mAdapter.getItemCount());
-                        mAdapter.notifyDataSetChanged();
                         if (mAdapter.getItemCount() > 50) {
                             mAdapter.setHasMoreDataAndFooter(false, true);
+                        } else {
+                            mAdapter.append(mTitle + " +" + mAdapter.getItemCount());
+                            mAdapter.append(mTitle + " +" + mAdapter.getItemCount());
+                            mAdapter.append(mTitle + " +" + mAdapter.getItemCount());
+                            mAdapter.append(mTitle + " +" + mAdapter.getItemCount());
+                            mAdapter.append(mTitle + " +" + mAdapter.getItemCount());
                         }
+                        mAdapter.notifyDataSetChanged();
                         mRecyclerView.scrollToPosition(position);
                     }
                 }, 2000);//2秒
