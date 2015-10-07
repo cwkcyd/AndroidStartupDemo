@@ -9,12 +9,13 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_margin="4dp">
 
         <com.dahuo.learn.refresh.MaterialProgressBarSupport
             android:id="@+id/progress_view"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             app:progressColor="@color/line_color_run_speed_13"
             app:progressBackgroundColor="@color/progress_background_light"
             app:progressSmallSize="true" />
@@ -23,7 +24,7 @@
             android:id="@+id/tv_content"
             android:paddingLeft="8dp"
             android:layout_width="wrap_content"
-            android:layout_height="56dp"
+            android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:text="@string/app_loading_more" />
     </LinearLayout>

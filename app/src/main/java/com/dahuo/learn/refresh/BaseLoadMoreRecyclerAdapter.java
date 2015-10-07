@@ -15,7 +15,8 @@ import java.util.List;
  * Created on 15/8/23.
  */
 public abstract class BaseLoadMoreRecyclerAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter {
-    private static final int TYPE_FOOTER = Integer.MIN_VALUE;
+    public static final int TYPE_FOOTER = Integer.MIN_VALUE;
+    public static final int TYPE_ITEM = 0;
     private boolean hasFooter;//设置是否显示Footer
     private boolean hasMoreData;//设置是否可以继续加载数据
 
@@ -85,7 +86,7 @@ public abstract class BaseLoadMoreRecyclerAdapter<T, VH extends RecyclerView.Vie
         if (position == getBasicItemCount() && hasFooter) {
             return TYPE_FOOTER;
         }
-        return super.getItemViewType(position);//0
+        return TYPE_ITEM;//0
     }
 
    	public List<T> getList(){

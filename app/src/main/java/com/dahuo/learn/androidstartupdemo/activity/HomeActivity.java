@@ -9,6 +9,7 @@ import android.view.WindowManager;
 
 import com.dahuo.learn.androidstartupdemo.R;
 import com.dahuo.learn.androidstartupdemo.fragment.SimpleFragment;
+import com.dahuo.learn.androidstartupdemo.fragment.SwipeRefreshAndLoadMoreFragmentGridView;
 import com.dahuo.learn.androidstartupdemo.fragment.SwipeRefreshAndLoadMoreFragmentList;
 import com.dahuo.learn.androidstartupdemo.fragment.SwipeRefreshFragment;
 import com.dahuo.learn.androidstartupdemo.fragment.SwipeRefreshFragmentList;
@@ -37,7 +38,7 @@ public class HomeActivity extends MaterialNavigationDrawer {
                         SwipeRefreshAndLoadMoreFragmentList.newInstance(getString(R.string.app_history)));
         MaterialSection deviceSection =
                 newSection(getString(R.string.app_device), R.mipmap.ic_launcher,
-                        SimpleFragment.newInstance(getString(R.string.app_device)));
+                        SwipeRefreshAndLoadMoreFragmentGridView.newInstance(getString(R.string.app_device)));
         MaterialSection userSection =
                 newSection(getString(R.string.app_user_info), R.mipmap.ic_launcher,
                         SimpleFragment.newInstance(getString(R.string.app_user_info)));

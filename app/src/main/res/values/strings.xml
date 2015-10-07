@@ -6,7 +6,7 @@
     <string name="app_home">首页</string>
     <string name="app_plan">计划List</string>
     <string name="app_history">历史List</string>
-    <string name="app_device">设备</string>
+    <string name="app_device">设备GridView</string>
     <string name="app_run_complete">完成</string>
     <string name="app_user_info">个人</string>
 
