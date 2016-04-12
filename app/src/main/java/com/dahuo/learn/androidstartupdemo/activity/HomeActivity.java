@@ -10,7 +10,6 @@ import android.view.WindowManager;
 import com.dahuo.learn.androidstartupdemo.R;
 import com.dahuo.learn.androidstartupdemo.fragment.SimpleFragment;
 import com.dahuo.learn.androidstartupdemo.fragment.SwipeRefreshAndLoadMoreFragmentGridView;
-import com.dahuo.learn.androidstartupdemo.fragment.SwipeRefreshAndLoadMoreFragmentList;
 import com.dahuo.learn.androidstartupdemo.fragment.SwipeRefreshFragment;
 import com.dahuo.learn.androidstartupdemo.fragment.SwipeRefreshFragmentList;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -26,7 +25,7 @@ public class HomeActivity extends MaterialNavigationDrawer {
     public void init(Bundle bundle) {
         //KitKat translucent modes
         //setTranslucentStatus(this, true);
-
+        setDrawerHeaderImage(R.drawable.rocket);
         MaterialSection homeSection =
                 newSection(getString(R.string.app_home), R.mipmap.ic_launcher,
                         SwipeRefreshFragment.newInstance(getString(R.string.app_home)));
@@ -35,7 +34,7 @@ public class HomeActivity extends MaterialNavigationDrawer {
                         SwipeRefreshFragmentList.newInstance(getString(R.string.app_plan)));
         MaterialSection historySection =
                 newSection(getString(R.string.app_history), R.mipmap.ic_launcher,
-                        SwipeRefreshAndLoadMoreFragmentList.newInstance(getString(R.string.app_history)));
+                        SimpleFragment.newInstance(getString(R.string.app_history)));
         MaterialSection deviceSection =
                 newSection(getString(R.string.app_device), R.mipmap.ic_launcher,
                         SwipeRefreshAndLoadMoreFragmentGridView.newInstance(getString(R.string.app_device)));
@@ -53,7 +52,7 @@ public class HomeActivity extends MaterialNavigationDrawer {
         disableLearningPattern();
         // add pattern
         this.setBackPattern(MaterialNavigationDrawer.BACKPATTERN_BACK_TO_FIRST);
-        allowArrowAnimation();
+        //allowArrowAnimation();
         enableToolbarElevation();
     }
 

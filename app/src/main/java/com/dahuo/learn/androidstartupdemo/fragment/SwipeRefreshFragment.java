@@ -2,32 +2,35 @@ package com.dahuo.learn.androidstartupdemo.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.text.TextUtils;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dahuo.learn.androidstartupdemo.R;
+import com.dahuo.learn.androidstartupdemo.adapter.SimpleAdapter;
 import com.dahuo.learn.androidstartupdemo.constant.AppConstants;
+import com.dahuo.learn.androidstartupdemo.widget.AppLoadMoreFooterView;
+import com.github.captain_miao.recyclerviewutils.WrapperRecyclerView;
+import com.github.captain_miao.recyclerviewutils.listener.OnRecyclerItemClickListener;
+import com.github.captain_miao.recyclerviewutils.listener.RefreshRecyclerViewListener;
+
+import java.util.ArrayList;
 
 
 /**
  * Created on 15/08/01
  */
 
-public class SwipeRefreshFragment extends BaseFragment implements View.OnClickListener {
+public class SwipeRefreshFragment extends BaseFragment implements RefreshRecyclerViewListener, OnRecyclerItemClickListener {
     private static final String TAG = SwipeRefreshFragment.class.getSimpleName();
     private String mTitle;
-    private TextView mTvTitle;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    public SwipeRefreshFragment() {
-    }
 
-
-    public static SwipeRefreshFragment newInstance(String title) {
-        SwipeRefreshFragment f = new SwipeRefreshFragment();
+    private SimpleAdapter mAdapter;
+    private WrapperRecyclerView mWrapperRecyclerView;
+    public static SwipeRefreshFragmentList newInstance(String title) {
+        SwipeRefreshFragmentList f = new SwipeRefreshFragmentList();
 
         Bundle args = new Bundle();
 
@@ -47,45 +50,56 @@ public class SwipeRefreshFragment extends BaseFragment implements View.OnClickLi
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.frag_swipe_refresh, null);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.activity_main_swipe_refresh_layout);
-        mTvTitle = (TextView) rootView.findViewById(R.id.tv_content);
-        mTvTitle.setOnClickListener(this);// for mock
+        View rootView = inflater.inflate(R.layout.frag_swipe_refresh_list, container, false);
+        mWrapperRecyclerView = (WrapperRecyclerView) rootView.findViewById(R.id.recycler_view);
         return rootView;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        if(!TextUtils.isEmpty(mTitle)){
-            mTvTitle.setText(mTitle);
-        }
-        //设置加载圈圈的颜色
-        //mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.line_color_run_speed_1);
-        mSwipeRefreshLayout.setColorSchemeResources(R.color.line_color_run_speed_7,
-                R.color.line_color_run_speed_9,
-                R.color.line_color_run_speed_11);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        mWrapperRecyclerView.setLayoutManager(linearLayoutManager);
+        mWrapperRecyclerView.disableLoadMore();
+        mAdapter = new SimpleAdapter(new ArrayList<String>(), this);
+        mAdapter.setLoadMoreFooterView(new AppLoadMoreFooterView(getActivity()));
+        mWrapperRecyclerView.setAdapter(mAdapter);
+        mWrapperRecyclerView.setRecyclerViewListener(this);
+
+        mWrapperRecyclerView.post(new Runnable() {
             @Override
-            public void onRefresh() {
-                //
-                mSwipeRefreshLayout.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mSwipeRefreshLayout.setRefreshing(false);
-                        //mSwipeRefreshLayout.setEnabled(false);//可以禁止下拉刷新
-                    }
-                }, 3000);//3秒
+            public void run() {
+                mWrapperRecyclerView.autoRefresh();
             }
         });
     }
 
+
+
     @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_content:
-                break;
-        }
+    public void onRefresh() {
+        mWrapperRecyclerView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mWrapperRecyclerView.refreshComplete();
+                mAdapter.add(mTitle + " +" + mAdapter.getItemCount(), false);
+                mAdapter.add(mTitle + " +" + mAdapter.getItemCount(), false);
+                mAdapter.add(mTitle + " +" + mAdapter.getItemCount(), false);
+                mAdapter.add(mTitle + " +" + mAdapter.getItemCount(), false);
+                mAdapter.add(mTitle + " +" + mAdapter.getItemCount(), false);
+                mAdapter.notifyDataSetChanged();
+            }
+        }, 1000);//1秒
+    }
+
+    @Override
+    public void onLoadMore(int pagination, int pageSize) {
+
+    }
+
+    @Override
+    public void onClick(View v, int position) {
+        Toast.makeText(v.getContext(), "on click " + position, Toast.LENGTH_SHORT).show();
     }
 
 

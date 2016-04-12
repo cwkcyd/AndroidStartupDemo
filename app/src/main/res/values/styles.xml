@@ -39,7 +39,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="drawerType">@integer/DRAWERTYPE_NO_HEADER</item>
+        <item name="drawerType">@integer/DRAWERTYPE_IMAGE</item>
         <item name="singleAccount">false</item>
         <item name="learningPattern">false</item>
         <item name="rippleBackport">true</item>
