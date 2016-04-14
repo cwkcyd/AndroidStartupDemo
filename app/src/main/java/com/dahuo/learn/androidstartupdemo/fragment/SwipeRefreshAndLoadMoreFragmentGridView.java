@@ -13,6 +13,7 @@ import com.dahuo.learn.androidstartupdemo.adapter.SimpleAdapter;
 import com.dahuo.learn.androidstartupdemo.constant.AppConstants;
 import com.dahuo.learn.androidstartupdemo.widget.AppLoadMoreFooterView;
 import com.github.captain_miao.recyclerviewutils.WrapperRecyclerView;
+import com.github.captain_miao.recyclerviewutils.common.SpaceItemDecoration;
 import com.github.captain_miao.recyclerviewutils.listener.OnRecyclerItemClickListener;
 import com.github.captain_miao.recyclerviewutils.listener.RefreshRecyclerViewListener;
 
@@ -27,12 +28,11 @@ public class SwipeRefreshAndLoadMoreFragmentGridView extends BaseFragment implem
     private static final String TAG = SwipeRefreshAndLoadMoreFragmentGridView.class.getSimpleName();
     private String mTitle;
 
-
-
     private SimpleAdapter mAdapter;
     private WrapperRecyclerView mWrapperRecyclerView;
-    public static SwipeRefreshFragmentList newInstance(String title) {
-        SwipeRefreshFragmentList f = new SwipeRefreshFragmentList();
+
+    public static SwipeRefreshAndLoadMoreFragmentGridView newInstance(String title) {
+        SwipeRefreshAndLoadMoreFragmentGridView f = new SwipeRefreshAndLoadMoreFragmentGridView();
 
         Bundle args = new Bundle();
 
@@ -62,6 +62,7 @@ public class SwipeRefreshAndLoadMoreFragmentGridView extends BaseFragment implem
         super.onActivityCreated(savedInstanceState);
         final GridLayoutManager linearLayoutManager = new GridLayoutManager(getActivity(), 3);
         mWrapperRecyclerView.setLayoutManager(linearLayoutManager);
+        mWrapperRecyclerView.addItemDecoration(new SpaceItemDecoration(4));
         mAdapter = new SimpleAdapter(new ArrayList<String>(), this);
         mAdapter.setLoadMoreFooterView(new AppLoadMoreFooterView(getActivity()));
         mWrapperRecyclerView.setAdapter(mAdapter);

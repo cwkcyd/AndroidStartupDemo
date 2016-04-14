@@ -38,7 +38,7 @@ public class SimpleAdapter extends BaseWrapperRecyclerAdapter<String, RecyclerVi
     public SimpleAdapter.ItemViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item, parent, false);
-        return new ItemViewHolder(view);
+        return new ItemViewHolder(view, mOnRecyclerItemClickListener);
     }
 
     @Override

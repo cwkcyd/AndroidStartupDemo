@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;
 
 import com.dahuo.learn.androidstartupdemo.R;
+import com.dahuo.learn.app.AndroidApplication;
+import com.squareup.leakcanary.RefWatcher;
 
 
 /**
@@ -13,10 +15,14 @@ public class BaseFragment extends Fragment {
     protected String TAG = "BaseSupportActivity";
 
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        RefWatcher refWatcher = AndroidApplication.getRefWatcher(getActivity());
+        refWatcher.watch(this);
+    }
 
     protected ProgressDialog bongProgressDialog;
-
-
     protected void dismissProgressDialog() {
         try {
             if (bongProgressDialog != null && bongProgressDialog.isShowing()) {

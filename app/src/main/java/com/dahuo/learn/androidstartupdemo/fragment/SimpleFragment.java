@@ -1,8 +1,11 @@
 package com.dahuo.learn.androidstartupdemo.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +61,7 @@ public class SimpleFragment extends BaseFragment implements View.OnClickListener
         if(!TextUtils.isEmpty(mTitle)){
             mTvTitle.setText(mTitle);
         }
+        mHandler.sendEmptyMessageDelayed(100, 2000);
     }
 
     @Override
@@ -68,5 +72,11 @@ public class SimpleFragment extends BaseFragment implements View.OnClickListener
         }
     }
 
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d(TAG, "handleMessage:" + msg.what);
+        }
+    };
 
 }
