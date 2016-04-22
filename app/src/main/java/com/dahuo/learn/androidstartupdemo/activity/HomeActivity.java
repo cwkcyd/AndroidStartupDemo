@@ -2,6 +2,7 @@ package com.dahuo.learn.androidstartupdemo.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
@@ -34,7 +35,7 @@ public class HomeActivity extends MaterialNavigationDrawer {
                         SwipeRefreshFragmentList.newInstance(getString(R.string.app_plan)));
         MaterialSection historySection =
                 newSection(getString(R.string.app_history), R.mipmap.ic_launcher,
-                        SimpleFragment.newInstance(getString(R.string.app_history)));
+                        new Intent(this, SimpleActivity.class));
         MaterialSection deviceSection =
                 newSection(getString(R.string.app_device), R.mipmap.ic_launcher,
                         SwipeRefreshAndLoadMoreFragmentGridView.newInstance(getString(R.string.app_device)));
