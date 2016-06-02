@@ -1,18 +1,25 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.3'
+    compileSdkVersion this.compileSdkVersion
+    buildToolsVersion this.buildToolsVersion
+
 
     defaultConfig {
-        applicationId "com.dahuo.learn.androidstartupdemo"
-        minSdkVersion 14
-        targetSdkVersion 23
-        versionCode 102
-        versionName "1.0.2"
+        applicationId "com.dahuo.learn.startup"
+        minSdkVersion this.minSdkVersion
+        targetSdkVersion this.targetSdkVersion
+        versionCode this.versionCode
+        versionName this.versionName
+
+        // Error:Data Binding does not support Jack builds yet
+        jackOptions {
+            enabled false
+        }
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,10 +28,16 @@ android {
     }
 
     productFlavors {
-        fir{}
-//        productFlavors.all{
-//            flavor->flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
-//        }
+        fir {}
+    }
+
+    // enable dataBinding
+    dataBinding {
+        enabled = true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 
     lintOptions {
@@ -32,36 +45,42 @@ android {
     }
 
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile "com.android.support:appcompat-v7:${this.supportLibrariesVersion}"
+        compile "com.android.support:recyclerview-v7:${this.supportLibrariesVersion}"
+        compile "com.android.support:cardview-v7:${this.supportLibrariesVersion}"
+        compile "com.android.support:design:${this.supportLibrariesVersion}"
+        compile 'com.github.captain-miao:grantap:1.0.3'
+        compile 'com.github.captain-miao:recyclerviewutils:1.2.1'
+        compile 'com.wang.avi:library:1.0.3'
+
+
+
+        //for memory leak
+        //debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+        debugCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+        releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+        testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+
+        //for test
+        testCompile 'junit:junit:4.12'
+        androidTestCompile 'com.android.support:support-annotations:23.4.0'
+        androidTestCompile 'com.android.support.test:runner:0.4.1'
+        androidTestCompile 'com.android.support.test:rules:0.4.1'
+        // Optional -- Hamcrest library
+        androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
+        // Optional -- UI testing with Espresso
+        androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+        // Optional -- UI testing with UI Automator
+        //androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
+
+
+    }
 }
 
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'it.neokree:MaterialNavigationDrawer:1.3.3'
-    compile 'com.android.support:recyclerview-v7:23.4.0'
-    compile 'com.android.support:cardview-v7:23.4.0'
-    compile 'com.github.rahatarmanahmed:circularprogressview:2.3.2'
-    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
-    compile 'com.github.captain-miao:grantap:1.0.3'
-    compile 'com.github.captain-miao:recyclerviewutils:1.1.9'
-    compile 'com.wang.avi:library:1.0.3'
-
-    //for test
-    androidTestCompile 'com.android.support:support-annotations:23.4.0'
-    androidTestCompile 'com.android.support.test:runner:0.4.1'
-    androidTestCompile 'com.android.support.test:rules:0.4.1'
-    // Optional -- Hamcrest library
-    androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
-    // Optional -- UI testing with Espresso
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
-    // Optional -- UI testing with UI Automator
-    //androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
-
-
-    //for memory leak
-    //debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
-}

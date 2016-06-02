@@ -1,4 +1,4 @@
-package com.dahuo.learn.swiperefreshlayoutforlollipop;
+package com.dahuo.learn.app;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

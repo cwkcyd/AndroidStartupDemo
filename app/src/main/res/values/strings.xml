@@ -1,26 +1,13 @@
 <resources>
-    <string name="app_name">AndroidStartupDemo</string>
-
-    <string name="app_loading">处理中…</string>
-
-    <string name="app_home">首页</string>
-    <string name="app_plan">计划List</string>
-    <string name="app_history">历史List</string>
-    <string name="app_device">设备GridView</string>
-    <string name="app_run_complete">完成</string>
-    <string name="app_user_info">个人</string>
-
-
-
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="app_name">MtTutorial</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_example">Example action</string>
-    <string name="action_click_me">Click Me</string>
-
     <string name="action_settings">Settings</string>
+    <string name="time_counter">%4d s</string>
+
+
+    <string name="time_counter_start">Start</string>
+    <string name="time_counter_stop">Stop</string>
 </resources>
