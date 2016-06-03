@@ -1,4 +1,7 @@
 # AndroidStartupDemo
 Android Startup Demo
 
-apk download： http://fir.im/yan
+
+
+## Thanks
+[HotBitmapGG-StudyProject](https://github.com/HotBitmapGG/StudyProject)

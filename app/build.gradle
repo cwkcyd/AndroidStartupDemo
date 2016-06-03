@@ -60,7 +60,8 @@ android {
         compile 'com.github.captain-miao:recyclerviewutils:1.2.1'
         compile 'com.wang.avi:library:1.0.3'
 
-
+        compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+        compile 'com.squareup.picasso:picasso:2.6.0-SNAPSHOT'
 
         //for memory leak
         //debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
