@@ -61,7 +61,11 @@ android {
         compile 'com.wang.avi:library:1.0.3'
 
         compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+        compile 'com.squareup.retrofit2:converter-gson:2.0.2'
         compile 'com.squareup.picasso:picasso:2.6.0-SNAPSHOT'
+
+        // foragera
+        compile 'com.google.android.agera:agera:1.0.0-rc2'
 
         //for memory leak
         //debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
