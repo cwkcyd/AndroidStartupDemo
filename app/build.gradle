@@ -57,14 +57,14 @@ android {
         compile "com.android.support:cardview-v7:${this.supportLibrariesVersion}"
         compile "com.android.support:design:${this.supportLibrariesVersion}"
         compile 'com.github.captain-miao:grantap:1.0.3'
-        compile 'com.github.captain-miao:recyclerviewutils:1.2.1'
+        compile 'com.github.captain-miao:recyclerviewutils:1.2.2-SNAPSHOT'
         compile 'com.wang.avi:library:1.0.3'
 
         compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
         compile 'com.squareup.retrofit2:converter-gson:2.0.2'
         compile 'com.squareup.picasso:picasso:2.6.0-SNAPSHOT'
 
-        // foragera
+        // for agera
         compile 'com.google.android.agera:agera:1.0.0-rc2'
 
         //for memory leak
@@ -76,12 +76,12 @@ android {
         //for test
         testCompile 'junit:junit:4.12'
         androidTestCompile 'com.android.support:support-annotations:23.4.0'
-        androidTestCompile 'com.android.support.test:runner:0.4.1'
-        androidTestCompile 'com.android.support.test:rules:0.4.1'
+        androidTestCompile "com.android.support.test:runner:${this.supportTestVersion}"
+        androidTestCompile "com.android.support.test:rules:${this.supportTestVersion}"
         // Optional -- Hamcrest library
         androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
         // Optional -- UI testing with Espresso
-        androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+        androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
         // Optional -- UI testing with UI Automator
         //androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
 

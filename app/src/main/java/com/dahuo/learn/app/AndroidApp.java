@@ -10,16 +10,27 @@ import com.squareup.leakcanary.RefWatcher;
  * @author YanLu
  * @since 16/4/13
  */
-public class AndroidApplication extends Application{
+public class AndroidApp extends Application{
+    private static AndroidApp instance;
+
+    public static AndroidApp getInstance() {
+        return instance;
+    }
+
+    public static Context getAppContext(){
+        return instance.getApplicationContext();
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         refWatcher = LeakCanary.install(this);
     }
 
 
     public static RefWatcher getRefWatcher(Context context) {
-        AndroidApplication application = (AndroidApplication) context.getApplicationContext();
+        AndroidApp application = (AndroidApp) context.getApplicationContext();
       return application.refWatcher;
     }
 
