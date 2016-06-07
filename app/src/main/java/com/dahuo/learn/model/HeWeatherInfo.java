@@ -18,7 +18,11 @@ public class HeWeatherInfo extends BaseModel {
     public AqiEntity aqi;
     public AqiEntity alarms;
     public NowEntity now;
+
+    @SerializedName("daily_forecast")
     public List<DailyForecastEntity> dailyForecast;
+
+    @SerializedName("hourly_forecast")
     public List<HourlyForecastEntity> hourlyForecast;
     public SuggestionEntity suggestion;
 
@@ -230,9 +234,16 @@ public class HeWeatherInfo extends BaseModel {
         }
 
         public static class CondEntity implements Serializable {
+            @SerializedName("code_d")
             public String codeD;
+
+            @SerializedName("code_n")
             public String codeN;
+
+            @SerializedName("txt_d")
             public String txtD;
+
+            @SerializedName("txt_n")
             public String txtN;
         }
 
@@ -250,15 +261,10 @@ public class HeWeatherInfo extends BaseModel {
     }
 
     public static class HourlyForecastEntity implements Serializable {
-        @SerializedName("date")
         public String date;
-        @SerializedName("hum")
         public String hum;
-        @SerializedName("pop")
         public String pop;
-        @SerializedName("pres")
         public String pres;
-        @SerializedName("tmp")
         public String tmp;
         /**
          * deg : 13
@@ -267,7 +273,6 @@ public class HeWeatherInfo extends BaseModel {
          * spd : 16
          */
 
-        @SerializedName("wind")
         public WindEntity wind;
 
         public static class WindEntity implements Serializable {

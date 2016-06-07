@@ -2,21 +2,17 @@ package com.dahuo.learn.weather;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dahuo.learn.model.HeWeatherInfo;
 import com.dahuo.learn.startup.BR;
 import com.dahuo.learn.startup.R;
 import com.github.captain_miao.recyclerviewutils.BaseWrapperRecyclerAdapter;
-
-import java.util.List;
 
 
 
@@ -30,10 +26,6 @@ public class WeatherInfoAdapter extends BaseWrapperRecyclerAdapter<HeWeatherInfo
     public WeatherInfoAdapter() {
     }
 
-    public WeatherInfoAdapter(List<HeWeatherInfo> items) {
-        addAll(items);
-    }
-
     @Override
     public RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -41,11 +33,9 @@ public class WeatherInfoAdapter extends BaseWrapperRecyclerAdapter<HeWeatherInfo
             case TYPE_ONE:
                 return new NowWeatherViewHolder(inflater.inflate(R.layout.item_temperature, parent, false));
             case TYPE_TWO:
-                return new HoursWeatherViewHolder(
-                        inflater.inflate(R.layout.item_hour_info, parent, false));
+                return new HoursWeatherViewHolder(inflater.inflate(R.layout.item_hour_info, parent, false));
             case TYPE_THREE:
-                return new SuggestionViewHolder(
-                        inflater.inflate(R.layout.item_suggestion, parent, false));
+                return new SuggestionViewHolder(inflater.inflate(R.layout.item_suggestion, parent, false));
             case TYPE_FORE:
                 return new ForecastViewHolder(inflater.inflate(R.layout.item_forecast, parent, false));
         }
@@ -72,12 +62,6 @@ public class WeatherInfoAdapter extends BaseWrapperRecyclerAdapter<HeWeatherInfo
             default:
                 break;
         }
-//        final HeWeatherInfo info = getItem(position);
-//        if(holder instanceof ViewHolder){
-//            ViewDataBinding binding = ((ViewHolder) holder).getBinding();
-//            binding.setVariable(BR.info, info);
-//            binding.executePendingBindings();
-//        }
     }
 
 
@@ -102,23 +86,16 @@ public class WeatherInfoAdapter extends BaseWrapperRecyclerAdapter<HeWeatherInfo
         return super.getContentViewType(dataListIndex);
     }
 
-    @Override
-    protected int getBasicItemCount() {
-        return (mItemList.size() > 0 && mItemList.get(0) != null && mItemList.get(0).isSuccess()) ?  4 : 0;
-    }
+//    @Override
+//    protected int getBasicItemCount() {
+//        return (mItemList.size() > 0 && mItemList.get(0) != null && mItemList.get(0).isSuccess()) ?  4 : 0;
+//    }
 
     /**
      * 当前天气情况
      */
     class NowWeatherViewHolder extends RecyclerView.ViewHolder {
         private ViewDataBinding mBinding;
-        ImageView weatherIcon;
-        TextView tempFlu;
-        TextView tempMax;
-        TextView tempMin;
-        TextView tempPm;
-        TextView tempQuality;
-        CardView cardView;
 
         public NowWeatherViewHolder(View itemView) {
             super(itemView);

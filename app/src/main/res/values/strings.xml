@@ -20,4 +20,8 @@
     <string name="temperature_min" formatted="false">↓ %s °</string>
     <string name="city_air_PM25" formatted="false">PM25: %s</string>
     <string name="city_air_quality" formatted="false">空气质量: %s</string>
+    <string name="suggestion_dressing_index" formatted="false">穿衣指数---%s</string>
+    <string name="suggestion_sport_index" formatted="false">运动指数---%s</string>
+    <string name="suggestion_travel_index" formatted="false">旅游指数---%s</string>
+    <string name="suggestion_influenza_index" formatted="false">感冒指数---%s</string>
 </resources>

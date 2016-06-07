@@ -24,7 +24,10 @@ public class PicassoBindingAdapter {
         Picasso.with(imageView.getContext()).load(url).error(error).into(imageView);
     }
 
-
+    @BindingAdapter({"imageRes"})
+    public static void setImageByResourceId(ImageView imageView, int resource) {
+        imageView.setImageResource(resource);
+    }
 
     @BindingAdapter({"android:src"})
     public static void setImageViewResource(ImageView imageView, int resource) {

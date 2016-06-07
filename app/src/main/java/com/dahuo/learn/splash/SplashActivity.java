@@ -78,8 +78,9 @@ public class SplashActivity extends Activity {
             public void onAnimationEnd(Animator animation) {
 
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                //activity切换的淡入淡出效果
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 SplashActivity.this.finish();
-                SplashActivity.this.overridePendingTransition(0, 0);
             }
         });
     }

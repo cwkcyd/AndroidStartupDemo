@@ -59,14 +59,15 @@ android {
         compile 'com.github.captain-miao:grantap:1.0.3'
         compile 'com.github.captain-miao:recyclerviewutils:1.2.2-SNAPSHOT'
         compile 'com.wang.avi:library:1.0.3'
-
+        compile 'jp.wasabeef:recyclerview-animators:2.2.3'
+        
         compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
         compile 'com.squareup.retrofit2:converter-gson:2.0.2'
         compile 'com.squareup.picasso:picasso:2.6.0-SNAPSHOT'
 
         // for agera
-        compile 'com.google.android.agera:agera:1.0.0-rc2'
-
+        compile 'com.google.android.agera:agera:1.1.0-beta2'
+        compile 'com.github.captain-miao:optroundcardview:1.0.0-SNAPSHOT'
         //for memory leak
         //debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
         debugCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'

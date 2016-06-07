@@ -27,6 +27,13 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity
+            android:name="com.dahuo.learn.weather.setting.ui.SettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.dahuo.learn.weather.city.ui.ChoiceCityActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

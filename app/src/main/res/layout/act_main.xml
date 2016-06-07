@@ -6,9 +6,16 @@
     tools:context="com.github.dahuo.multithreading.tutorial.MainActivity">
 
     <data>
+
+        <import type="com.dahuo.learn.model.HeWeatherInfo"/>
+
         <variable
             name="weather"
-            type="String"/>
+            type="HeWeatherInfo"/>
+
+        <variable
+            name="imgRes"
+            type="int"/>
     </data>
 
     <android.support.v4.widget.DrawerLayout
@@ -18,45 +25,43 @@
         android:fitsSystemWindows="true"
         tools:openDrawer="start">
 
-        <android.support.design.widget.CoordinatorLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            android:orientation="vertical"
             >
 
-            <android.support.design.widget.AppBarLayout
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/AppTheme.AppBarOverlay">
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="?attr/colorPrimary"
-                    app:popupTheme="@style/AppTheme.PopupOverlay"/>
-
-            </android.support.design.widget.AppBarLayout>
-
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                tools:showIn="@layout/app_bar_main"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-
-                <com.github.captain_miao.recyclerviewutils.WrapperRecyclerView
-                    android:id="@+id/refresh_recycler_view"
+                <in.srain.cube.views.ptr.PtrClassicFrameLayout
+                    android:id="@+id/ptr_frame"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/bg_color">
+                    app:ptr_duration_to_close="300"
+                    app:ptr_duration_to_close_header="2000"
+                    app:ptr_keep_header_when_refresh="true"
+                    app:ptr_pull_to_fresh="false"
+                    app:ptr_ratio_of_header_height_to_refresh="1.2"
+                    app:ptr_resistance="1.7">
 
-                </com.github.captain_miao.recyclerviewutils.WrapperRecyclerView>
-
-            </LinearLayout>
-        </android.support.design.widget.CoordinatorLayout>
+                    <include
+                        layout="@layout/weather_content"
+                        app:imgRes="@{imgRes}"
+                        app:weather="@{weather}"
+                        />
+                </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+            </RelativeLayout>
+        </LinearLayout>
 
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
